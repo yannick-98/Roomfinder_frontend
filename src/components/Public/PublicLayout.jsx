@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import roomfinder from '/src/assets/roomfinder.png'
+import roomfinder from '/src/assets/RoomFinder.png'
 
 const PublicLayout = () => {
     return (
