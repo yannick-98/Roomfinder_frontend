@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import roomfinder from '/src/assets/roomfinder.png'
+import roomfinder from '/src/assets/RoomFinder.png'
 import searchicon from '/src/assets/searchicon.png'
 import usericon from '/src/assets/usericon.png'
 import logouticon from '/src/assets/logouticon.png'
