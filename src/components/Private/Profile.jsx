@@ -77,6 +77,19 @@ const Profile = () => {
                     })
                     const responseFile = await requestFile.json()
                     console.log(responseFile)
+                    if (responseFile.status === 'success') {
+                        setSuccess(true)
+                        setTimeout(() => {
+                            localStorage.setItem('user', JSON.stringify(responseFile.user))
+                            setSuccess(false)
+                            setEdit(false)
+                        }, 2000)
+                    } else {
+                        setError(responseFile.message)
+                        setTimeout(() => {
+                            setError('')
+                        }, 2000)
+                    }
                 }
             } catch (error) {
                 console.log(error)
