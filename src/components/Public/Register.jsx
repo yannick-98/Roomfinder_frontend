@@ -69,10 +69,14 @@ const Register = () => {
             <div className='flex flex-col ijustify-center w-80 border-2 rounded-lg py-8 px-3 bg-gray-50'>
                 <br />
                 <form onSubmit={handleSubmit} className='space-y-4'>
-                    <input type="text" placeholder='Username' name='Username' onChange={changed} className='w-full bg-gray-50 ' />
-                    <input type="email" placeholder='Email' name='Email' onChange={changed} className='w-full bg-gray-50 ' />
-                    <input type="password" placeholder='Password' name='Password1' onChange={changed} className='w-full bg-gray-50' />
-                    <input type="password" placeholder='Confirm password' name='Password2' onChange={changed} className='w-full bg-gray-50' />
+                    <input type="text" placeholder='Username' name='Username' onChange={changed}
+                        autoComplete='username' className='w-full bg-gray-50 ' />
+                    <input type="email" placeholder='Email' name='Email' onChange={changed}
+                        autoComplete='email' className='w-full bg-gray-50 ' />
+                    <input type="password" placeholder='Password' name='Password1' onChange={changed}
+                        autoComplete='password1' className='w-full bg-gray-50' />
+                    <input type="password" placeholder='Confirm password' name='Password2'
+                        autoComplete='password2' onChange={changed} className='w-full bg-gray-50' />
                     {error && <p className='text-red-500'>{error}</p>}
                     {success && <p className='text-green-500'>User created successfully</p>}
                     <input type="submit" value="Sign Up" className='w-full rounded bg-black text-white' />
