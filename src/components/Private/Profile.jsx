@@ -49,7 +49,20 @@ const Profile = () => {
                     })
                 })
                 const response = await request.json()
-                if (response.status === 'success') {
+                const file = document.getElementById('file0').files[0]
+                if (!file) return
+                const formData = new FormData()
+                formData.append('file', file)
+                const requestFile = await fetch(`${Global.url}user/updateUser`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `${token}`,
+                    },
+                    body: formData
+                })
+                const responseFile = await requestFile.json()
+                console.log(responseFile)
+                if (response.status === 'success' || responseFile.status === 'success') {
                     setSuccess(true)
                     setTimeout(() => {
                         localStorage.setItem('user', JSON.stringify(response.user))
@@ -57,8 +70,13 @@ const Profile = () => {
                         setEdit(false)
                     }, 2000)
 
-                } else {
+                } else if (response.status === 'error') {
                     setError(response.message)
+                    setTimeout(() => {
+                        setError('')
+                    }, 3000)
+                } else if (responseFile.status === 'error') {
+                    setError(responseFile.message)
                     setTimeout(() => {
                         setError('')
                     }, 3000)
@@ -76,10 +94,14 @@ const Profile = () => {
             return (
                 <form onSubmit={editProfile} className='w-full flex justify-center flex-col gap-2'>
                     <button type='button' onClick={showEdit} className='w-full text-end'>X</button>
-                    <input type="text" name='username' placeholder='Username' onChange={changed} />
-                    <input type="text" name='email' placeholder='Email' onChange={changed} />
-                    <input type="text" name='phone' placeholder='Phone' onChange={changed} />
-                    <input type="text" name='password' placeholder='Password' onChange={changed} />
+                    <input type="text" name='username' placeholder='Username'
+                        autoComplete='username' onChange={changed} />
+                    <input type="text" name='email' placeholder='Email'
+                        autoComplete='email' onChange={changed} />
+                    <input type="text" name='phone' placeholder='Phone'
+                        autoComplete='phone' onChange={changed} />
+                    <input type="text" name='password' placeholder='Password'
+                        autoComplete='password' onChange={changed} />
                     <p className='font-thin'>Avatar</p>
                     <input name='file' id='file' type='file' onChange={changed} />
                     {error && <p className='text-red-500'>{error}</p>}

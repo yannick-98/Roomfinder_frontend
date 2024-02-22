@@ -48,8 +48,8 @@ const Register = () => {
             if (response.status === 'success') {
                 setSuccess(true)
                 setTimeout(() => {
-                    setSuccess(false)
-                }, 3000);
+                    window.location = '/Login'
+                }, 1500);
             }
             if (response.status === 'error') {
                 setError(response.message)
