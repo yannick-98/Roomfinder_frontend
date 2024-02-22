@@ -1,0 +1,14 @@
+.house {
+    background-image: url('/src/assets/houseimg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+}
+.house2 {
+    background-image: url('/src/assets/houseimg2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+}
