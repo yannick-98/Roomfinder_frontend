@@ -13,6 +13,7 @@ const Profile = () => {
     const [section, setSection] = useState('My ads')
     const [edit, setEdit] = useState(false)
     const avatar = user.avatar ? `${Global.url}user/avatar/${user.avatar}` : userimg
+    console.log(avatar)
 
     const auth = () => {
         const userLS = localStorage.getItem('user')

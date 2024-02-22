@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         authUser()
-    }, [auth])
+    }, [])
 
 
     return (
