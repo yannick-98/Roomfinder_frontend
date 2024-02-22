@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import userimg from '/src/assets/user.png'
-import MyAds from './MyAds'
-import MyFavorites from './MyFavorites'
-import Messages from './Messages'
 import { Global } from '../../helpers/Global'
 import useForm from '../../hooks/useForm'
 import { NavLink, Outlet } from 'react-router-dom'
@@ -15,6 +12,7 @@ const Profile = () => {
     const [success, setSuccess] = useState(false)
     const [section, setSection] = useState('My ads')
     const [edit, setEdit] = useState(false)
+    const avatar = user.avatar ? `${Global.url}user/avatar/${user.avatar}` : userimg
 
     const auth = () => {
         const userLS = localStorage.getItem('user')
@@ -134,7 +132,7 @@ const Profile = () => {
                 <div className='flex justify-center items-center w-full p-5 gap-10 '>
                     {!edit &&
                         <div className='flex flex-col justify-center items-center '>
-                            <img src={userimg} alt="" className='w-32 rounded-full' />
+                            <img src={avatar} alt="" className='w-32 rounded-full' />
                         </div>}
                     {editSection()}
                 </div>
