@@ -1,6 +1,7 @@
 import React from 'react'
-import '/src/images.css'
 import { NavLink } from 'react-router-dom'
+import '/src/images.css'
+import HouseImg from '/src/assets/houseimg.png'
 
 const Home = () => {
 
@@ -24,21 +25,21 @@ const Home = () => {
             <section className='p-5 space-y-4 pt-12'>
                 <div className='flex flex-col sm:flex-row items-center gap-12'>
                     <div className='flex flex-col items-center gap-2'>
-                        <img src="/src/assets/houseimg.png" alt="" className='w-36 h-24 rounded-lg' />
+                        <img src={HouseImg} alt="" className='w-36 h-24 rounded-lg' />
                         <div className='flex flex-col items-center gap-2'>
                             <p className='font-bold'>The price of rental housing in Spain rises 5.2% in the second quarter of 2021</p>
                             <p>idealista / news</p>
                         </div>
                     </div>
                     <div className='flex flex-col items-center gap-2'>
-                        <img src="/src/assets/houseimg.png" alt="" className='w-36 h-24 rounded-lg' />
+                        <img src={HouseImg} alt="" className='w-36 h-24 rounded-lg' />
                         <div className='flex flex-col items-center gap-2'>
                             <p className='font-bold'>The price of rental housing in Spain rises 5.2% in the second quarter of 2021</p>
                             <p>idealista / news</p>
                         </div>
                     </div>
                     <div className='flex flex-col items-center gap-2'>
-                        <img src="/src/assets/houseimg.png" alt="" className='w-36 h-24 rounded-lg' />
+                        <img src={HouseImg} alt="" className='w-36 h-24 rounded-lg' />
                         <div className='flex flex-col items-center gap-2'>
                             <p className='font-bold'>The price of rental housing in Spain rises 5.2% in the second quarter of 2021</p>
                             <p>idealista / news</p>
