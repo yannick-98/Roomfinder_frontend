@@ -9,7 +9,6 @@ import { NavLink, Outlet } from 'react-router-dom'
 
 const Profile = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
-    console.log(user)
     const token = localStorage.getItem('token')
     const { form, changed } = useForm({})
     const [error, setError] = useState('')
@@ -35,51 +34,50 @@ const Profile = () => {
         const editProfile = async (e) => {
             e.preventDefault()
             try {
-                const request = await fetch(`${Global.url}user/updateUser`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `${token}`,
-                    },
-                    body: JSON.stringify({
-                        username: form.username,
-                        email: form.email,
-                        phone: form.phone,
-                        password: form.password,
+                if (form.username || form.email || form.phone || form.password) {
+                    const request = await fetch(`${Global.url}user/updateUser`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `${token}`,
+                        },
+                        body: JSON.stringify({
+                            username: form.username,
+                            email: form.email,
+                            phone: form.phone,
+                            password: form.password,
+                        })
                     })
-                })
-                const response = await request.json()
-                const file = document.getElementById('file0').files[0]
-                if (!file) return
-                const formData = new FormData()
-                formData.append('file', file)
-                const requestFile = await fetch(`${Global.url}user/updateUser`, {
-                    method: 'PUT',
-                    headers: {
-                        'Authorization': `${token}`,
-                    },
-                    body: formData
-                })
-                const responseFile = await requestFile.json()
-                console.log(responseFile)
-                if (response.status === 'success' || responseFile.status === 'success') {
-                    setSuccess(true)
-                    setTimeout(() => {
-                        localStorage.setItem('user', JSON.stringify(response.user))
-                        setSuccess(false)
-                        setEdit(false)
-                    }, 2000)
-
-                } else if (response.status === 'error') {
-                    setError(response.message)
-                    setTimeout(() => {
-                        setError('')
-                    }, 3000)
-                } else if (responseFile.status === 'error') {
-                    setError(responseFile.message)
-                    setTimeout(() => {
-                        setError('')
-                    }, 3000)
+                    const response = await request.json()
+                    console.log(response)
+                    if (response.status === 'success') {
+                        setSuccess(true)
+                        setTimeout(() => {
+                            localStorage.setItem('user', JSON.stringify(response.user))
+                            setSuccess(false)
+                            setEdit(false)
+                        }, 2000)
+                    } else {
+                        setError(response.message)
+                        setTimeout(() => {
+                            setError('')
+                        }, 2000)
+                    }
+                }
+                if (form.file) {
+                    const fileInput = document.getElementById('file')
+                    const file = fileInput.files[0]
+                    const formData = new FormData()
+                    formData.append('file0', file)
+                    const requestFile = await fetch(`${Global.url}user/uploadAvatar`, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `${token}`,
+                        },
+                        body: formData
+                    })
+                    const responseFile = await requestFile.json()
+                    console.log(responseFile)
                 }
             } catch (error) {
                 console.log(error)
