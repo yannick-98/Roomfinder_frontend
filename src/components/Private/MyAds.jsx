@@ -68,7 +68,7 @@ const Ad = ({ ad }) => {
 
     return (
         <div className='w-full mx-auto flex flex-col sm:flex-row border-2 rounded-lg bg-white border-gray-300'>
-            <div>
+            <div className='w-auto h-full'>
                 <Carousel files={files} />
             </div>
             <div className='p-2 w-full flex flex-col gap-2 sm:max-h-96 sm:justify-between '>

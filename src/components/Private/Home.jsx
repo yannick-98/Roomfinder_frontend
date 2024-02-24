@@ -14,7 +14,7 @@ const Home = () => {
                             <p className='text-lg font-semibold'>Find a Room that Fits Your Lifestyle</p>
                             <div className='flex justify-between gap-1'>
                                 <NavLink to='/user/search/'>
-                                    <i className='fas fa-magnify-glass text-slate-600'>Discover</i>
+                                    <i className='fas fa-search text-gray-400'></i>
                                 </NavLink>
                             </div>
                         </section>

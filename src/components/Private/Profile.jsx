@@ -146,21 +146,21 @@ const Profile = () => {
                 <div className='flex justify-center items-center w-full p-5 gap-10 '>
                     {!edit &&
                         <div className='flex flex-col justify-center items-center '>
-                            <img src={avatar} alt="" className='w-32 rounded-full' />
+                            <img src={avatar} alt="" className='w-32 h-32 rounded-full ' />
                         </div>}
                     {editSection()}
                 </div>
             </section>
             <section>
-                <div className='flex w-full justify-around text-center p-1 border-2 text-sm sm:text-md bg-white'>
-                    <NavLink to={'myAds'} className='w-1/3' onClick={() => setSection('My ads')}>
-                        <i className={`fas fa-house ${bgColor('My ads')}`}>My ads</i>
+                <div className='flex w-full justify-around text-center p-2 border-2 text-xs bg-white'>
+                    <NavLink to={'myAds'} className='w-1/3 flex items-center justify-center' onClick={() => setSection('My ads')}>
+                        <i className={`fas fa-save ${bgColor('My ads')}`}> My ads</i>
                     </NavLink>
-                    <NavLink to={'myFavorites'} className='w-1/3' onClick={() => setSection('My favorites')}>
-                        <i className={`fas fa-heart ${bgColor('My favorites')}`}>My favorites</i>
+                    <NavLink to={'myFavorites'} className='w-1/3 flex items-center justify-center' onClick={() => setSection('My favorites')}>
+                        <i className={`fas fa-heart ${bgColor('My favorites')}`}> My favorites</i>
                     </NavLink>
-                    <NavLink to={'messages'} className='w-1/3' onClick={() => setSection('Messages')}>
-                        <i className={`fas fa-trash ${bgColor('Messages')}`}>Messages</i>
+                    <NavLink to={'messages'} className='w-1/3 flex items-center justify-center' onClick={() => setSection('Messages')}>
+                        <i className={`fas fa-message ${bgColor('Messages')}`}> Messages</i>
                     </NavLink>
                 </div>
             </section>

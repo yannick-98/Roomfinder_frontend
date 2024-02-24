@@ -13,12 +13,12 @@ const Carrousel = ({ files }) => {
     };
     try {
         return (
-            <div className="flex flex-col w-full bg-white">
-                <div className=" w-full rounded-lg sm:max-w-[60vw] lg:max-w-[40rem] mx-auto">
+            <div className="flex flex-col w-full h-full bg-white">
+                <div className=" w-full h-full rounded-lg sm:max-w-[60vw] lg:max-w-[40rem] mx-auto">
                     <img
                         src={`${Global.url}post/getImg/${files[currentIndex]}`}
                         alt="img"
-                        className="rounded"
+                        className="rounded h-full w-full"
                         onClick={handleNext} />
                 </div>
 

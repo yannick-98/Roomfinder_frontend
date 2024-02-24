@@ -29,10 +29,11 @@ const Messages = () => {
     }
     return (
         <div className='w-[90vw] max-w-[900px] flex flex-col gap-2'>
-            {chats.length === 0 ? <p className='w-full pt-12 flex justify-center items-center text-center'>No chats</p> : chats.map((chat) => {
-                return <Chat key={chat._id} chat={chat} />
-            }
-            )}
+            {chats.length === 0 ? <p className='text-center text-xl font-bold text-slate-400'>You don't have any chats yet</p>
+                : chats.map((chat) => {
+                    return <Chat key={chat._id} chat={chat} />
+                }
+                )}
         </div>
     )
 }

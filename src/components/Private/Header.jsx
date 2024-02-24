@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import roomfinder from '/src/assets/RoomFinder.png'
-import searchicon from '/src/assets/searchicon.png'
-import usericon from '/src/assets/usericon.png'
-import logouticon from '/src/assets/logouticon.png'
-import houseicon from '/src/assets/houseicon.png'
 import menuicon from '/src/assets/menuicon.png'
 
 const Header = () => {
@@ -22,20 +18,17 @@ const Header = () => {
         <div className='flex justify-between items-center w-full h-[7vh] p-3'>
             <div className='w-1/5 text-start'>
                 <button onClick={handleShow} className='flex items-center justify-center sm:hidden'>
-                    <img src={menuicon} alt="" className='w-6' />
+                    <i className='fas fa-bars'></i>
                 </button>
                 <div className='hidden sm:flex gap-2 font-thin '>
                     <NavLink to={'/user/home'} className='flex justify-center items-center'>
-                        <img src={houseicon} alt="" className='w-6' />
-                        <i className='hidden lg:flex'>Home</i>
+                        <i className='fas fa-home'></i>
                     </NavLink>
                     <NavLink to={'/user/search'} className='flex justify-center items-center'>
-                        <img src={searchicon} alt="" className='w-5' />
-                        <i className='hidden lg:flex'>Search</i>
+                        <i className='fas fa-search'></i>
                     </NavLink>
                     <NavLink to={'/user/profile'} className='flex justify-center items-center'>
-                        <img src={usericon} alt="" className='w-6' />
-                        <i className='hidden lg:flex'>Profile</i>
+                        <i className='fas fa-user'></i>
                     </NavLink>
                 </div>
             </div>
@@ -58,7 +51,7 @@ const Header = () => {
                 <img src={roomfinder} alt="" className='w-56 mx-auto' />
             </NavLink>
             <NavLink to={'/'} onClick={logout} className="w-1/5 flex justify-end font-thin">
-                <img src={logouticon} alt="" className='w-6' />
+                <i className='fas fa-sign-out-alt'></i>
             </NavLink>
         </div>
     )

@@ -86,7 +86,7 @@ const MyFavorites = () => {
                     <Add key={index} ad={ad} getFavorites={getFavorites} />
                 ))
             ) : (
-                <p className='text-center text-xl font-bold text-slate-400'>You don't have any ads yet</p>
+                <p className='text-center text-xl font-bold text-slate-400'>You don't have any favorites yet</p>
             )}
         </div>
     )
